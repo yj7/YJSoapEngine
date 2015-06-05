@@ -7,12 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "OrderedDictionary.h"
 
 @interface XmlParser : NSObject {
 
 }
-+(NSMutableDictionary *)propertDictionary:(NSObject *) objt;
++(OrderedDictionary *)propertDictionary:(NSObject *) objt;
 
 +(NSString *)getResult:(NSString *)xmlString;
 

@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0830068F1B219EDC003EC1C6 /* YJSoapEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 083006811B219EDC003EC1C6 /* YJSoapEngine.m */; };
+		083006901B219EDC003EC1C6 /* XmlParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 083006841B219EDC003EC1C6 /* XmlParser.m */; };
+		083006911B219EDC003EC1C6 /* XmlHeaderHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 083006861B219EDC003EC1C6 /* XmlHeaderHelper.m */; };
+		083006921B219EDC003EC1C6 /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 083006881B219EDC003EC1C6 /* GDataXMLNode.m */; };
+		083006931B219EDC003EC1C6 /* TypeMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 0830068A1B219EDC003EC1C6 /* TypeMapping.m */; };
+		083006941B219EDC003EC1C6 /* XMLDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 0830068C1B219EDC003EC1C6 /* XMLDictionary.m */; };
+		083006951B219EDC003EC1C6 /* OrderedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 0830068D1B219EDC003EC1C6 /* OrderedDictionary.m */; };
 		F61F72581B208C6300E94693 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F61F72571B208C6300E94693 /* main.m */; };
 		F61F725B1B208C6300E94693 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F61F725A1B208C6300E94693 /* AppDelegate.m */; };
 		F61F725E1B208C6300E94693 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F61F725D1B208C6300E94693 /* ViewController.m */; };
@@ -14,11 +21,6 @@
 		F61F72631B208C6300E94693 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F61F72621B208C6300E94693 /* Images.xcassets */; };
 		F61F72661B208C6300E94693 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F61F72641B208C6300E94693 /* LaunchScreen.xib */; };
 		F61F72721B208C6300E94693 /* SoapExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F61F72711B208C6300E94693 /* SoapExampleTests.m */; };
-		F61F72981B208D5900E94693 /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = F61F728F1B208D5900E94693 /* GDataXMLNode.m */; };
-		F61F72991B208D5900E94693 /* TypeMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = F61F72911B208D5900E94693 /* TypeMapping.m */; };
-		F61F729A1B208D5900E94693 /* XMLDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = F61F72931B208D5900E94693 /* XMLDictionary.m */; };
-		F61F729B1B208D5900E94693 /* XmlParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F61F72951B208D5900E94693 /* XmlParser.m */; };
-		F61F729C1B208D5900E94693 /* YJSoapEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = F61F72971B208D5900E94693 /* YJSoapEngine.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +34,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		083006811B219EDC003EC1C6 /* YJSoapEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJSoapEngine.m; sourceTree = "<group>"; };
+		083006821B219EDC003EC1C6 /* XmlParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XmlParser.h; sourceTree = "<group>"; };
+		083006831B219EDC003EC1C6 /* OrderedDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderedDictionary.h; sourceTree = "<group>"; };
+		083006841B219EDC003EC1C6 /* XmlParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XmlParser.m; sourceTree = "<group>"; };
+		083006851B219EDC003EC1C6 /* YJSoapEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJSoapEngine.h; sourceTree = "<group>"; };
+		083006861B219EDC003EC1C6 /* XmlHeaderHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XmlHeaderHelper.m; sourceTree = "<group>"; };
+		083006871B219EDC003EC1C6 /* GDataXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDataXMLNode.h; sourceTree = "<group>"; };
+		083006881B219EDC003EC1C6 /* GDataXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDataXMLNode.m; sourceTree = "<group>"; };
+		083006891B219EDC003EC1C6 /* TypeMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TypeMapping.h; sourceTree = "<group>"; };
+		0830068A1B219EDC003EC1C6 /* TypeMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TypeMapping.m; sourceTree = "<group>"; };
+		0830068B1B219EDC003EC1C6 /* XMLDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLDictionary.h; sourceTree = "<group>"; };
+		0830068C1B219EDC003EC1C6 /* XMLDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLDictionary.m; sourceTree = "<group>"; };
+		0830068D1B219EDC003EC1C6 /* OrderedDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderedDictionary.m; sourceTree = "<group>"; };
+		0830068E1B219EDC003EC1C6 /* XmlHeaderHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XmlHeaderHelper.h; sourceTree = "<group>"; };
 		F61F72521B208C6300E94693 /* SoapExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SoapExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F61F72561B208C6300E94693 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F61F72571B208C6300E94693 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -45,16 +61,6 @@
 		F61F726B1B208C6300E94693 /* SoapExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SoapExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F61F72701B208C6300E94693 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F61F72711B208C6300E94693 /* SoapExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SoapExampleTests.m; sourceTree = "<group>"; };
-		F61F728E1B208D5900E94693 /* GDataXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDataXMLNode.h; sourceTree = "<group>"; };
-		F61F728F1B208D5900E94693 /* GDataXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDataXMLNode.m; sourceTree = "<group>"; };
-		F61F72901B208D5900E94693 /* TypeMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TypeMapping.h; sourceTree = "<group>"; };
-		F61F72911B208D5900E94693 /* TypeMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TypeMapping.m; sourceTree = "<group>"; };
-		F61F72921B208D5900E94693 /* XMLDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLDictionary.h; sourceTree = "<group>"; };
-		F61F72931B208D5900E94693 /* XMLDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLDictionary.m; sourceTree = "<group>"; };
-		F61F72941B208D5900E94693 /* XmlParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XmlParser.h; sourceTree = "<group>"; };
-		F61F72951B208D5900E94693 /* XmlParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XmlParser.m; sourceTree = "<group>"; };
-		F61F72961B208D5900E94693 /* YJSoapEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJSoapEngine.h; sourceTree = "<group>"; };
-		F61F72971B208D5900E94693 /* YJSoapEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJSoapEngine.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,16 +144,20 @@
 		F61F728D1B208D5900E94693 /* YJSOAPEngine */ = {
 			isa = PBXGroup;
 			children = (
-				F61F728E1B208D5900E94693 /* GDataXMLNode.h */,
-				F61F728F1B208D5900E94693 /* GDataXMLNode.m */,
-				F61F72901B208D5900E94693 /* TypeMapping.h */,
-				F61F72911B208D5900E94693 /* TypeMapping.m */,
-				F61F72921B208D5900E94693 /* XMLDictionary.h */,
-				F61F72931B208D5900E94693 /* XMLDictionary.m */,
-				F61F72941B208D5900E94693 /* XmlParser.h */,
-				F61F72951B208D5900E94693 /* XmlParser.m */,
-				F61F72961B208D5900E94693 /* YJSoapEngine.h */,
-				F61F72971B208D5900E94693 /* YJSoapEngine.m */,
+				083006811B219EDC003EC1C6 /* YJSoapEngine.m */,
+				083006821B219EDC003EC1C6 /* XmlParser.h */,
+				083006831B219EDC003EC1C6 /* OrderedDictionary.h */,
+				083006841B219EDC003EC1C6 /* XmlParser.m */,
+				083006851B219EDC003EC1C6 /* YJSoapEngine.h */,
+				083006861B219EDC003EC1C6 /* XmlHeaderHelper.m */,
+				083006871B219EDC003EC1C6 /* GDataXMLNode.h */,
+				083006881B219EDC003EC1C6 /* GDataXMLNode.m */,
+				083006891B219EDC003EC1C6 /* TypeMapping.h */,
+				0830068A1B219EDC003EC1C6 /* TypeMapping.m */,
+				0830068B1B219EDC003EC1C6 /* XMLDictionary.h */,
+				0830068C1B219EDC003EC1C6 /* XMLDictionary.m */,
+				0830068D1B219EDC003EC1C6 /* OrderedDictionary.m */,
+				0830068E1B219EDC003EC1C6 /* XmlHeaderHelper.h */,
 			);
 			path = YJSOAPEngine;
 			sourceTree = "<group>";
@@ -252,14 +262,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				083006911B219EDC003EC1C6 /* XmlHeaderHelper.m in Sources */,
+				083006921B219EDC003EC1C6 /* GDataXMLNode.m in Sources */,
 				F61F725E1B208C6300E94693 /* ViewController.m in Sources */,
-				F61F72981B208D5900E94693 /* GDataXMLNode.m in Sources */,
+				0830068F1B219EDC003EC1C6 /* YJSoapEngine.m in Sources */,
+				083006901B219EDC003EC1C6 /* XmlParser.m in Sources */,
 				F61F725B1B208C6300E94693 /* AppDelegate.m in Sources */,
+				083006931B219EDC003EC1C6 /* TypeMapping.m in Sources */,
 				F61F72581B208C6300E94693 /* main.m in Sources */,
-				F61F72991B208D5900E94693 /* TypeMapping.m in Sources */,
-				F61F729C1B208D5900E94693 /* YJSoapEngine.m in Sources */,
-				F61F729B1B208D5900E94693 /* XmlParser.m in Sources */,
-				F61F729A1B208D5900E94693 /* XMLDictionary.m in Sources */,
+				083006941B219EDC003EC1C6 /* XMLDictionary.m in Sources */,
+				083006951B219EDC003EC1C6 /* OrderedDictionary.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,6 +468,7 @@
 				F61F72771B208C6300E94693 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F61F72781B208C6300E94693 /* Build configuration list for PBXNativeTarget "SoapExampleTests" */ = {
 			isa = XCConfigurationList;
@@ -464,6 +477,7 @@
 				F61F727A1B208C6300E94693 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

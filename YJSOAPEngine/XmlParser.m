@@ -15,6 +15,7 @@
 
 #import "TypeMapping.h"
 #import "XmlHeaderHelper.h"
+#import "OrderedDictionary.h"
 
 
 
@@ -58,10 +59,10 @@ static const char* getPropertyType(objc_property_t property) {
 
 
 //Method to get property type and name of a given object
-+ (NSMutableDictionary *)propertDictionary:(NSObject *) objt{
++ (OrderedDictionary *)propertDictionary:(NSObject *) objt{
     
 	unsigned int outCount, i;	
-	NSMutableDictionary * dic = [NSMutableDictionary dictionaryWithCapacity:1]; 
+	OrderedDictionary * dic = [[OrderedDictionary alloc]init];
     objc_property_t *properties = class_copyPropertyList([objt class], &outCount);
     for(i = 0; i < outCount; i++) {
         objc_property_t property = properties[i];

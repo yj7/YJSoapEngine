@@ -16,6 +16,7 @@
 - (void)setString:(NSString *)value andTag:(NSString *)tag;
 - (void)setFloat:(float)value andTag:(NSString *)tag;
 - (void)requestURL:(NSString *)reqURL withSoapAction:(NSString *)soapAction;
+- (void)setActionNamespace:(NSString *)namespace;
 @property BOOL actionSlashNamespace;
 @property id <YJSoapEngineDelegate> delegate;
 @end
@@ -24,6 +25,6 @@
 @protocol YJSoapEngineDelegate
 @required
 - (void)YJSoapEngine:(YJSoapEngine *)soapEngine didRecieveData:(NSString *)data inDictionary:(NSDictionary *)dataDictionary;
-- (void)YJSoapEngine:(YJSoapEngine *)YJSoapEngine didRecieveError:error inDictionary:(NSDictionary *)errorDictionary;
+- (void)YJSoapEngine:(YJSoapEngine *)YJSoapEngine didRecieveError:(NSString *)error inDictionary:(NSDictionary *)errorDictionary;
 
 @end

@@ -11,9 +11,12 @@
 #include "GDataXMLNode.h"
 #import "objc/runtime.h"
 #import "XMLDictionary.h"
+#import "OrderedDictionary.h"
 NSMutableArray *values;
 NSString *methodName;
 GDataXMLElement *envelopeElement;
+NSString *actionNamespace;
+NSMutableData *responseData;
 @implementation YJSoapEngine
 
 - (YJSoapEngine *)init
@@ -28,20 +31,22 @@ GDataXMLElement *envelopeElement;
     _actionSlashNamespace = NO;
     return self;
 }
+
 -(GDataXMLElement *)toXml:(id)object andTag:(NSString *)tag inNameSpace:(NSString *)nameSpace{
     
     const char *objectName = class_getName([object class]);
     NSString *objectNameStr = [[NSString alloc] initWithBytes:objectName length:strlen(objectName) encoding:NSASCIIStringEncoding];
     GDataXMLElement * objectElement;
-    [objectElement addNamespace:[GDataXMLNode namespaceWithName:@"m" stringValue:nameSpace]];
+        //[objectElement addNamespace:[GDataXMLNode namespaceWithName:@"m" stringValue:nameSpace]];
     if (!tag)
-        objectElement = [GDataXMLNode elementWithName:[@"m:" stringByAppendingString:objectNameStr]];
+        objectElement = [GDataXMLNode elementWithName:[@"" stringByAppendingString:objectNameStr]];
     else
-        objectElement = [GDataXMLNode elementWithName:[@"m:" stringByAppendingString:tag]];
+        objectElement = [GDataXMLNode elementWithName:[@"" stringByAppendingString:tag]];
     
-    [objectElement addNamespace:[GDataXMLNode namespaceWithName:@"m" stringValue:nameSpace]];
-    NSMutableDictionary * propertyDic = [XmlParser propertDictionary:object];
+        //[objectElement addNamespace:[GDataXMLNode namespaceWithName:@"m" stringValue:nameSpace]];
+    OrderedDictionary * propertyDic = [XmlParser propertDictionary:object];
     NSString *nodeValue = [NSString stringWithFormat:@"%@",@""];
+    int order = 1;
     for (NSString *key in propertyDic)
     {
         if ([object valueForKey:key]!=nil)
@@ -54,8 +59,10 @@ GDataXMLElement *envelopeElement;
                 nodeValue = [NSString stringWithFormat:@"%@",[object valueForKey:key]];
             if (nodeValue.length != 0)
             {
-                GDataXMLElement * childElement = [GDataXMLNode elementWithName:[@"m:" stringByAppendingString:key] stringValue:nodeValue];
+                GDataXMLElement * childElement = [GDataXMLNode elementWithName:[[NSString stringWithFormat:@"m%d:",order] stringByAppendingString:key] stringValue:nodeValue];
+                [childElement addNamespace:[GDataXMLNode namespaceWithName:[NSString stringWithFormat:@"m%d",order] stringValue:nameSpace]];
                 [objectElement addChild:childElement];
+                order++;
             }
         }
     }
@@ -74,6 +81,11 @@ GDataXMLElement *envelopeElement;
     GDataXMLElement *temp = [self toXml:object andTag:tag inNameSpace:nameSpace];
     [values addObject:temp];
 }
+
+- (void)setActionNamespace:(NSString *)namespace
+{
+    actionNamespace = namespace;
+}
 - (void)requestURL:(NSString *)reqURL withSoapAction:(NSString *)soapAction
 {
     NSArray *pathArray = [soapAction componentsSeparatedByString:@"/"];
@@ -91,6 +103,10 @@ GDataXMLElement *envelopeElement;
         }
         [element addNamespace:[GDataXMLNode namespaceWithName:nil stringValue:tempNamespace]];
     }
+    else
+    {
+        [element addNamespace:[GDataXMLNode namespaceWithName:nil stringValue:actionNamespace]];
+    }
     for (GDataXMLElement *childs in values)
     {
         [element addChild:childs];
@@ -99,6 +115,7 @@ GDataXMLElement *envelopeElement;
     [soapBody addChild:element];
     [envelopeElement addChild:soapBody];
     NSString *headerString = [self generateXmlHeader];
+    responseData = [[NSMutableData alloc] init];
     NSString *soapMessage = [headerString stringByAppendingString:envelopeElement.XMLString];
     NSURL *url = [NSURL URLWithString:reqURL];
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
@@ -107,33 +124,47 @@ GDataXMLElement *envelopeElement;
     [theRequest addValue: soapAction forHTTPHeaderField:@"SOAPAction"];
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
+        // soapMessage = @"<?xml version=\"1.0\" encoding=\"UTF-8\"?><soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" soap:EncodingStyle=\"http://www.w3.org/2001/12/soap-encoding\"><soap:Body><GetMMHICCustInfoUseMobiNumb xmlns=\"http://Datacomp.Web.Serv.WCFServicesAPP/\"><inputInfo><m1:Mobile1 xmlns:m1=\"http://Datacomp.Web.Serv.Info/\">8454094407</m1:Mobile1><m2:Mobile2 xmlns:m2=\"http://Datacomp.Web.Serv.Info/\">0</m2:Mobile2><m3:Mobile3 xmlns:m3=\"http://Datacomp.Web.Serv.Info/\">0</m3:Mobile3><m4:ProdID xmlns:m4=\"http://Datacomp.Web.Serv.Info/\">141</m4:ProdID><m5:DeviID1 xmlns:m5=\"http://Datacomp.Web.Serv.Info/\">2cfd55d89c4a49df</m5:DeviID1><m6:MMHICUSERID xmlns:m6=\"http://Datacomp.Web.Serv.Info/\">3OK92Dl/LwA0HqfC5+fCxw==</m6:MMHICUSERID><m7:MMHICPASSWORD xmlns:m7=\"http://Datacomp.Web.Serv.Info/\">BjLfd1dqTCyH1DQLhylKRQ==</m7:MMHICPASSWORD></inputInfo></GetMMHICCustInfoUseMobiNumb></soap:Body></soap:Envelope>";
     [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
     NSURLConnection *conn = [[NSURLConnection alloc]initWithRequest:theRequest delegate:self startImmediately:YES];
     [conn start];
     
 }
-- (NSString *)generateXmlHeader {
-    NSString *xmlHeader = [NSString stringWithFormat:@"%@",@"<?xml version=\"1.0\" encoding=\"UTF-8\"?>"];
-    return xmlHeader;
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
+    [responseData setLength:0];
 }
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
-{
-    NSString *tempStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    tempStr = [self getResult:tempStr];
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+    [responseData appendData:data];
+}
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+    NSLog(@"Connection failed: %@", [error description]);
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+        //Getting your response string
+    NSString *responseString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+    responseString = [self getResult:responseString];
     NSDictionary *tempDict = [[NSDictionary alloc]init];
-    tempDict = [NSDictionary dictionaryWithXMLString:tempStr];
+    tempDict = [NSDictionary dictionaryWithXMLString:responseString];
     NSDictionary *checkFault = [tempDict valueForKey:@"faultcode"];
     if ([checkFault count] < 1)
     {
         if (_delegate != nil)
-            [_delegate YJSoapEngine:self didRecieveData:tempStr inDictionary:tempDict];
+            [_delegate YJSoapEngine:self didRecieveData:responseString inDictionary:tempDict];
     }
     else
     {
         if (_delegate != nil)
-            [_delegate YJSoapEngine:self didRecieveError:tempStr inDictionary:tempDict];
+            [_delegate YJSoapEngine:self didRecieveError:responseString inDictionary:tempDict];
     }
-   
+
+    responseData = nil;
+}
+- (NSString *)generateXmlHeader {
+    NSString *xmlHeader = [NSString stringWithFormat:@"%@",@"<?xml version=\"1.0\" encoding=\"UTF-8\"?>"];
+    return xmlHeader;
 }
 - (NSString *)getResult:(NSString *)xmlString{
     
@@ -150,18 +181,18 @@ GDataXMLElement *envelopeElement;
     GDataXMLElement *rootElement = [doc rootElement];
     GDataXMLNode *nameSpace = [rootElement.namespaces objectAtIndex:0];
     NSArray *temp = [doc nodesForXPath:[NSString stringWithFormat:@"//%@:Fault",nameSpace.name] error:nil];
-    if (temp == nil)
+    if ([temp count] == 0)
     {
         temp = [doc nodesForXPath:[NSString stringWithFormat:@"//%@:Body",nameSpace.name] error:nil];
     }
-    GDataXMLElement *anElement = temp[0];
-    return anElement.XMLString;
-    
+    if ([temp count] > 0)
+    {
+        GDataXMLElement *anElement = temp[0];
+        return anElement.XMLString;
+    }
+    else return @"";
 }
-- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
-{
-    NSLog(@"%@",error.description);
-}
+
 - (void)setInteger:(int)value andTag:(NSString *)tag
 {
     GDataXMLElement *objectElement;
