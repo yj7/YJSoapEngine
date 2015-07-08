@@ -66,12 +66,6 @@ This method is used to send the SOAP Request to the specified URL and the specif
 #!objective-c
 - (void)YJSoapEngine:(YJSoapEngine *)soapEngine didRecieveData:(NSString *)data inDictionary:(NSDictionary *)dataDictionary;
 ```
-This method is called when the SOAPResponse is received.
-
-```
-#!objective-c
-- (void)YJSoapEngine:(YJSoapEngine *)soapEngine didRecieveData:(NSString *)data inDictionary:(NSDictionary *)dataDictionary;
-```
 Required Method. This method is called when the SOAPResponse is received.
 
 ```
