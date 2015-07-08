@@ -72,4 +72,4 @@ Required Method. This method is called when the SOAPResponse is received.
 #!objective-c
 - (void)YJSoapEngine:(YJSoapEngine *)YJSoapEngine didRecieveError:error inDictionary:(NSDictionary *)errorDictionary;
 ```
-Required Method. This method is called when the SOAPResponse is an error.
+Required Method. This method is called when the SOAPResponse receives an error.
