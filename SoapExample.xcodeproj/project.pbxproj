@@ -7,13 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0830068F1B219EDC003EC1C6 /* YJSoapEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 083006811B219EDC003EC1C6 /* YJSoapEngine.m */; };
-		083006901B219EDC003EC1C6 /* XmlParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 083006841B219EDC003EC1C6 /* XmlParser.m */; };
-		083006911B219EDC003EC1C6 /* XmlHeaderHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 083006861B219EDC003EC1C6 /* XmlHeaderHelper.m */; };
-		083006921B219EDC003EC1C6 /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 083006881B219EDC003EC1C6 /* GDataXMLNode.m */; };
 		083006931B219EDC003EC1C6 /* TypeMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 0830068A1B219EDC003EC1C6 /* TypeMapping.m */; };
-		083006941B219EDC003EC1C6 /* XMLDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 0830068C1B219EDC003EC1C6 /* XMLDictionary.m */; };
-		083006951B219EDC003EC1C6 /* OrderedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 0830068D1B219EDC003EC1C6 /* OrderedDictionary.m */; };
 		F61F72581B208C6300E94693 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F61F72571B208C6300E94693 /* main.m */; };
 		F61F725B1B208C6300E94693 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F61F725A1B208C6300E94693 /* AppDelegate.m */; };
 		F61F725E1B208C6300E94693 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F61F725D1B208C6300E94693 /* ViewController.m */; };
@@ -21,6 +15,11 @@
 		F61F72631B208C6300E94693 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F61F72621B208C6300E94693 /* Images.xcassets */; };
 		F61F72661B208C6300E94693 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F61F72641B208C6300E94693 /* LaunchScreen.xib */; };
 		F61F72721B208C6300E94693 /* SoapExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F61F72711B208C6300E94693 /* SoapExampleTests.m */; };
+		F6E465251B4D642E007FF705 /* YJSoapEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 083006811B219EDC003EC1C6 /* YJSoapEngine.m */; };
+		F6E465261B4D642E007FF705 /* XmlParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 083006841B219EDC003EC1C6 /* XmlParser.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F6E465281B4D642E007FF705 /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 083006881B219EDC003EC1C6 /* GDataXMLNode.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F6E465291B4D642E007FF705 /* XMLDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 0830068C1B219EDC003EC1C6 /* XMLDictionary.m */; };
+		F6E4652A1B4D642E007FF705 /* OrderedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 0830068D1B219EDC003EC1C6 /* OrderedDictionary.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +38,6 @@
 		083006831B219EDC003EC1C6 /* OrderedDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderedDictionary.h; sourceTree = "<group>"; };
 		083006841B219EDC003EC1C6 /* XmlParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XmlParser.m; sourceTree = "<group>"; };
 		083006851B219EDC003EC1C6 /* YJSoapEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJSoapEngine.h; sourceTree = "<group>"; };
-		083006861B219EDC003EC1C6 /* XmlHeaderHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XmlHeaderHelper.m; sourceTree = "<group>"; };
 		083006871B219EDC003EC1C6 /* GDataXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDataXMLNode.h; sourceTree = "<group>"; };
 		083006881B219EDC003EC1C6 /* GDataXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDataXMLNode.m; sourceTree = "<group>"; };
 		083006891B219EDC003EC1C6 /* TypeMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TypeMapping.h; sourceTree = "<group>"; };
@@ -47,7 +45,6 @@
 		0830068B1B219EDC003EC1C6 /* XMLDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLDictionary.h; sourceTree = "<group>"; };
 		0830068C1B219EDC003EC1C6 /* XMLDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLDictionary.m; sourceTree = "<group>"; };
 		0830068D1B219EDC003EC1C6 /* OrderedDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderedDictionary.m; sourceTree = "<group>"; };
-		0830068E1B219EDC003EC1C6 /* XmlHeaderHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XmlHeaderHelper.h; sourceTree = "<group>"; };
 		F61F72521B208C6300E94693 /* SoapExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SoapExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F61F72561B208C6300E94693 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F61F72571B208C6300E94693 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -147,17 +144,15 @@
 				083006851B219EDC003EC1C6 /* YJSoapEngine.h */,
 				083006811B219EDC003EC1C6 /* YJSoapEngine.m */,
 				083006821B219EDC003EC1C6 /* XmlParser.h */,
-				083006831B219EDC003EC1C6 /* OrderedDictionary.h */,
 				083006841B219EDC003EC1C6 /* XmlParser.m */,
-				083006861B219EDC003EC1C6 /* XmlHeaderHelper.m */,
+				083006831B219EDC003EC1C6 /* OrderedDictionary.h */,
+				0830068D1B219EDC003EC1C6 /* OrderedDictionary.m */,
 				083006871B219EDC003EC1C6 /* GDataXMLNode.h */,
 				083006881B219EDC003EC1C6 /* GDataXMLNode.m */,
 				083006891B219EDC003EC1C6 /* TypeMapping.h */,
 				0830068A1B219EDC003EC1C6 /* TypeMapping.m */,
 				0830068B1B219EDC003EC1C6 /* XMLDictionary.h */,
 				0830068C1B219EDC003EC1C6 /* XMLDictionary.m */,
-				0830068D1B219EDC003EC1C6 /* OrderedDictionary.m */,
-				0830068E1B219EDC003EC1C6 /* XmlHeaderHelper.h */,
 			);
 			path = YJSOAPEngine;
 			sourceTree = "<group>";
@@ -262,16 +257,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				083006911B219EDC003EC1C6 /* XmlHeaderHelper.m in Sources */,
-				083006921B219EDC003EC1C6 /* GDataXMLNode.m in Sources */,
+				F6E465261B4D642E007FF705 /* XmlParser.m in Sources */,
+				F6E465281B4D642E007FF705 /* GDataXMLNode.m in Sources */,
 				F61F725E1B208C6300E94693 /* ViewController.m in Sources */,
-				0830068F1B219EDC003EC1C6 /* YJSoapEngine.m in Sources */,
-				083006901B219EDC003EC1C6 /* XmlParser.m in Sources */,
 				F61F725B1B208C6300E94693 /* AppDelegate.m in Sources */,
 				083006931B219EDC003EC1C6 /* TypeMapping.m in Sources */,
+				F6E465251B4D642E007FF705 /* YJSoapEngine.m in Sources */,
 				F61F72581B208C6300E94693 /* main.m in Sources */,
-				083006941B219EDC003EC1C6 /* XMLDictionary.m in Sources */,
-				083006951B219EDC003EC1C6 /* OrderedDictionary.m in Sources */,
+				F6E465291B4D642E007FF705 /* XMLDictionary.m in Sources */,
+				F6E4652A1B4D642E007FF705 /* OrderedDictionary.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,9 +391,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/include/libxml2,
+				);
 				INFOPLIST_FILE = SoapExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -408,9 +408,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/include/libxml2,
+				);
 				INFOPLIST_FILE = SoapExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

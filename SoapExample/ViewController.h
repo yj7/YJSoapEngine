@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface ViewController : UIViewController
-
+#import "YJSoapEngine.h"
+@interface ViewController : UIViewController<YJSoapEngineDelegate>
+{
+    IBOutlet UITextField *textCelcius;
+    IBOutlet UILabel *lblFarenheit;
+    
+}
 
 @end
 

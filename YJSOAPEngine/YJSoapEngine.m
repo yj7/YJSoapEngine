@@ -69,7 +69,6 @@ NSString *YJSoapEngineErrorDomain = @"com.lastminutecode.yjsoapengine";
     NSData *xmlData = document.XMLData;
     NSString *xmlString = [[NSString alloc] initWithData:xmlData encoding:NSUTF8StringEncoding];
     NSString *bodyString = [xmlString substringFromIndex:21];
-    //NSString *headerString = [XmlHeaderHelper generateXmlHeader:tag and:nameSpace];
     xmlString = [NSString stringWithFormat:@"%@",bodyString];
     // NSLog(@"xml string is :: %@",xmlString);
     return objectElement;

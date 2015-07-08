@@ -7,18 +7,40 @@
 //
 
 #import "ViewController.h"
-
 @interface ViewController ()
 
 @end
 
 @implementation ViewController
+- (IBAction)hideKeyboard:(id)sender
+{
+    [self.view endEditing:YES];
+}
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 }
-
+- (IBAction)sendRequest:(id)sender
+{
+    YJSoapEngine *soapEngine = [[YJSoapEngine alloc]init];
+    soapEngine.delegate = self;
+    soapEngine.actionSlashNamespace = YES;
+    [soapEngine setFloat:[textCelcius.text doubleValue] andTag:@"Celsius"];
+    [soapEngine requestURL:@"http://www.w3schools.com/webservices/tempconvert.asmx" withSoapAction:@"http://www.w3schools.com/webservices/CelsiusToFahrenheit"];
+    
+}
+- (void)YJSoapEngine:(YJSoapEngine *)soapEngine didRecieveData:(NSString *)data inDictionary:(NSDictionary *)dataDictionary
+{
+    NSLog(@"Soap Response:\n %@",data);
+    NSString *farenheit = [dataDictionary valueForKeyPath:@"CelsiusToFahrenheitResponse.CelsiusToFahrenheitResult"];
+    lblFarenheit.text = farenheit;
+}
+- (void)YJSoapEngine:(YJSoapEngine *)YJSoapEngine didRecieveError:(NSError *)error inDictionary:(NSDictionary *)errorDictionary
+{
+    NSLog(@"%@ : %ld",error.domain,(long)error.code);
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

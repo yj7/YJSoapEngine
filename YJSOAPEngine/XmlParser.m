@@ -14,7 +14,6 @@
 #import "objc/runtime.h"
 
 #import "TypeMapping.h"
-#import "XmlHeaderHelper.h"
 #import "OrderedDictionary.h"
 
 
@@ -226,60 +225,6 @@ static const char* getPropertyType(objc_property_t property) {
 
 //convert object to xml string, you could modify the type maping to fit your requirement, 
 //the reperesentation of type could be found in objective-c runtime reference.
--(NSString *)toXml:(id)object inNameSpace:(NSString *)nameSpace{
-	
-	const char *objectName = class_getName([object class]);
-	
-	NSString *objectNameStr = [[NSString alloc] initWithBytes:objectName length:strlen(objectName) encoding:NSASCIIStringEncoding];
-	
-	GDataXMLElement * objectElement = [GDataXMLNode elementWithName:objectNameStr];
-	
-	[objectElement addNamespace:[GDataXMLNode namespaceWithName:nil stringValue:nameSpace]];
-	
-    NSMutableDictionary * propertyDic = [XmlParser propertDictionary:object];
-	
-    NSString *nodeValue = [NSString stringWithFormat:@"%@",@""];
-	
-	for (NSString *key in propertyDic) {
-
-		if ([object valueForKey:key]!=nil){
-			
-			
-			if ([[propertyDic objectForKey:key] isEqualToString:@"l"]) {
-				nodeValue = [NSString stringWithFormat:@"%llu",[[object valueForKey:key] unsignedLongLongValue]];
-			}else if ([[propertyDic objectForKey:key] isEqualToString:@"i"]) {
-				nodeValue = [NSString stringWithFormat:@"%d",[object valueForKey:key]];
-			}else {
-				nodeValue = [NSString stringWithFormat:@"%@",[object valueForKey:key]];
-			}
-			
-			
-			if (nodeValue.length != 0) {
-				GDataXMLElement * childElement = [GDataXMLNode elementWithName:key stringValue:nodeValue];
-				[objectElement addChild:childElement];
-			}
-		}
-    }
-	GDataXMLDocument *document = [[GDataXMLDocument alloc] initWithRootElement:objectElement];
-	
-	NSData *xmlData = document.XMLData;
-	
-	NSString *xmlString = [[NSString alloc] initWithData:xmlData encoding:NSUTF8StringEncoding];
-	
-	NSString *bodyString = [xmlString substringFromIndex:21];
-	
-	NSString *headerString = [XmlHeaderHelper generateXmlHeader:@"" and:nameSpace];
-    
-	
-	xmlString = [NSString stringWithFormat:@"%@%@",headerString,bodyString];
-	
-	NSLog(@"xml string is :: %@",xmlString);
-	
-	[objectNameStr release];
-	[document release];
-	return xmlString;
-}
-
 -(NSString *)toXml:(id)object andTag:(NSString *)tag inNameSpace:(NSString *)nameSpace{
     
     const char *objectName = class_getName([object class]);
@@ -326,7 +271,6 @@ static const char* getPropertyType(objc_property_t property) {
     
     NSString *bodyString = [xmlString substringFromIndex:21];
     
-    //NSString *headerString = [XmlHeaderHelper generateXmlHeader:tag and:nameSpace];
     
     
     xmlString = [NSString stringWithFormat:@"%@",bodyString];

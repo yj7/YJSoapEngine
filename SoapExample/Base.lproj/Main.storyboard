@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -15,10 +16,73 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wQs-2D-aBE">
+                                <rect key="frame" x="231" y="285" width="138" height="30"/>
+                                <state key="normal" title="Send Soap Request">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendRequest:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="wHb-Te-vrI"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yti-Xr-raO">
+                                <rect key="frame" x="296" y="219" width="78" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="78" id="JIC-A6-qEA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Celcius" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OKi-Hl-8k2">
+                                <rect key="frame" x="231" y="222" width="57" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aGY-uB-JpJ">
+                                <rect key="frame" x="350" y="256" width="24" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fahrenheit" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kw8-Us-SxN">
+                                <rect key="frame" x="231" y="256" width="81" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="aGY-uB-JpJ" secondAttribute="centerY" constant="33.5" id="8lW-0H-GEk"/>
+                            <constraint firstItem="Yti-Xr-raO" firstAttribute="leading" secondItem="OKi-Hl-8k2" secondAttribute="trailing" constant="8" id="EDp-DG-f6j"/>
+                            <constraint firstAttribute="centerX" secondItem="OKi-Hl-8k2" secondAttribute="centerX" constant="40.5" id="HDa-Vf-koN"/>
+                            <constraint firstItem="aGY-uB-JpJ" firstAttribute="leading" secondItem="Kw8-Us-SxN" secondAttribute="trailing" constant="38" id="I45-nC-ypw"/>
+                            <constraint firstItem="wQs-2D-aBE" firstAttribute="top" secondItem="aGY-uB-JpJ" secondAttribute="bottom" constant="8" id="KxS-zd-5wU"/>
+                            <constraint firstItem="Kw8-Us-SxN" firstAttribute="top" secondItem="OKi-Hl-8k2" secondAttribute="bottom" constant="13" id="PS5-Nr-ItV"/>
+                            <constraint firstAttribute="centerX" secondItem="wQs-2D-aBE" secondAttribute="centerX" id="RPV-TF-yiq"/>
+                            <constraint firstItem="aGY-uB-JpJ" firstAttribute="top" secondItem="Yti-Xr-raO" secondAttribute="bottom" constant="7" id="kZR-Pb-0V7"/>
+                            <constraint firstItem="wQs-2D-aBE" firstAttribute="top" secondItem="Kw8-Us-SxN" secondAttribute="bottom" constant="8" id="q5d-0m-eTw"/>
+                            <constraint firstAttribute="centerX" secondItem="aGY-uB-JpJ" secondAttribute="centerX" constant="-62" id="rNt-Hi-V1Y"/>
+                            <constraint firstAttribute="centerY" secondItem="wQs-2D-aBE" secondAttribute="centerY" id="sif-SA-UO9"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="9eF-JS-eRS" appends="YES" id="55B-5a-Yze"/>
+                        </connections>
                     </view>
+                    <connections>
+                        <outlet property="lblFarenheit" destination="aGY-uB-JpJ" id="00X-3s-WI8"/>
+                        <outlet property="textCelcius" destination="Yti-Xr-raO" id="wtC-ZZ-ZZ8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="9eF-JS-eRS">
+                    <connections>
+                        <action selector="hideKeyboard:" destination="vXZ-lx-hvc" id="60O-Ag-CPx"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
         </scene>
     </scenes>
