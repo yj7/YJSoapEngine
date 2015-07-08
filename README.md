@@ -18,26 +18,22 @@ Also add the **-lxml2** in Other Linker Flags in Build Settings.
 
 ```
 @property BOOL actionNamespaceSlash;
-
 ```
 Sets whether the Envelope Namespace is specified in the SoapAction before the last slash.
 
 ```
 - (void)setObject:(id)object andTag:(NSString *)tag andNamespace:(NSString *)nameSpace;
-
 ```
 This method is used to set a custom object in the SOAP Request. This method serializes in the custom object. Tag parameter is optional to set the tag name of the object. Namespace parameter is used to set the namespace of the object.
 
 ```
 - (void)setInteger:(int)value andTag:(NSString *)tag;
-
 ```
 
 This method is used to set an Integer value in the SOAP Request. Tag is used to specify the tag name to be used.
 
 ```
 - (void)setFloat:(float)value andTag:(NSString *)tag;
-
 ```
 
 This method is used to set a Float value in the SOAP Request. Tag is used to specify the tag name to be used.
