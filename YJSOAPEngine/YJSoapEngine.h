@@ -25,6 +25,6 @@
 @protocol YJSoapEngineDelegate
 @required
 - (void)YJSoapEngine:(YJSoapEngine *)soapEngine didRecieveData:(NSString *)data inDictionary:(NSDictionary *)dataDictionary;
-- (void)YJSoapEngine:(YJSoapEngine *)YJSoapEngine didRecieveError:(NSString *)error inDictionary:(NSDictionary *)errorDictionary;
+- (void)YJSoapEngine:(YJSoapEngine *)YJSoapEngine didRecieveError:(NSError *)error inDictionary:(NSDictionary *)errorDictionary;
 
 @end

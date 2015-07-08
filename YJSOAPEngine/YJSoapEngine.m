@@ -124,7 +124,6 @@ NSMutableData *responseData;
     [theRequest addValue: soapAction forHTTPHeaderField:@"SOAPAction"];
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
-        // soapMessage = @"<?xml version=\"1.0\" encoding=\"UTF-8\"?><soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" soap:EncodingStyle=\"http://www.w3.org/2001/12/soap-encoding\"><soap:Body><GetMMHICCustInfoUseMobiNumb xmlns=\"http://Datacomp.Web.Serv.WCFServicesAPP/\"><inputInfo><m1:Mobile1 xmlns:m1=\"http://Datacomp.Web.Serv.Info/\">8454094407</m1:Mobile1><m2:Mobile2 xmlns:m2=\"http://Datacomp.Web.Serv.Info/\">0</m2:Mobile2><m3:Mobile3 xmlns:m3=\"http://Datacomp.Web.Serv.Info/\">0</m3:Mobile3><m4:ProdID xmlns:m4=\"http://Datacomp.Web.Serv.Info/\">141</m4:ProdID><m5:DeviID1 xmlns:m5=\"http://Datacomp.Web.Serv.Info/\">2cfd55d89c4a49df</m5:DeviID1><m6:MMHICUSERID xmlns:m6=\"http://Datacomp.Web.Serv.Info/\">3OK92Dl/LwA0HqfC5+fCxw==</m6:MMHICUSERID><m7:MMHICPASSWORD xmlns:m7=\"http://Datacomp.Web.Serv.Info/\">BjLfd1dqTCyH1DQLhylKRQ==</m7:MMHICPASSWORD></inputInfo></GetMMHICCustInfoUseMobiNumb></soap:Body></soap:Envelope>";
     [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
     NSURLConnection *conn = [[NSURLConnection alloc]initWithRequest:theRequest delegate:self startImmediately:YES];
     [conn start];
@@ -140,6 +139,10 @@ NSMutableData *responseData;
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
     NSLog(@"Connection failed: %@", [error description]);
+    if (_delegate)
+    {
+        [_delegate YJSoapEngine:self didRecieveError:error inDictionary:nil];
+    }
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
