@@ -6,12 +6,14 @@ YJSoapEngine is a class designed to simplify the implementation of a SOAP Web Se
 
 As of version 0.1, YJSoapEngine requires ARC. If you wish to use YJSoapEngine in a non-ARC project, just add the -fobjc-arc compiler flag to the YJSoapEngine.m class. To do this, go to the Build Phases tab in your target settings, open the Compile Sources group, double-click YJSoapEngine.m in the list and type -fobjc-arc into the popover.
 
-**Note:** XmlParser.m and GDataXMLNode.m is non - ARC. If used in ARC project, just add the -fno-fobjc-arc flag to these classes. To do this, go to the Build Phases tab in your target settings, open the Compile Sources group, double-click XmlParser.m and GDataXMLNode.m and  in the list and type -fno-fobjc-arc into the popover.
+**Note:** XmlParser.m and GDataXMLNode.m is non - ARC. If used in ARC project, just add the **-fno-objc-arc** flag to these classes. To do this, go to the Build Phases tab in your target settings, open the Compile Sources group, double-click XmlParser.m and GDataXMLNode.m and  in the list and type -**fno-objc-arc** into the popover.
 
 # Installation #
 
 To use the YJSoapEngine class in an app, just drag the files in the YJSoapEngine folder and add them in your project.
 
+Add **/usr/include/libxml2** in Header Search Paths in Build Settings.
+Also add the **-lxml2** in Other Linker Flags in Build Settings.
 # How to use #
 
 ```
@@ -64,16 +66,10 @@ This method is used to send the SOAP Request to the specified URL and the specif
 #!objective-c
 - (void)YJSoapEngine:(YJSoapEngine *)soapEngine didRecieveData:(NSString *)data inDictionary:(NSDictionary *)dataDictionary;
 ```
-This method is called when the SOAPResponse is received.
-
-```
-#!objective-c
-- (void)YJSoapEngine:(YJSoapEngine *)soapEngine didRecieveData:(NSString *)data inDictionary:(NSDictionary *)dataDictionary;
-```
 Required Method. This method is called when the SOAPResponse is received.
 
 ```
 #!objective-c
 - (void)YJSoapEngine:(YJSoapEngine *)YJSoapEngine didRecieveError:error inDictionary:(NSDictionary *)errorDictionary;
 ```
-Required Method. This method is called when the SOAPResponse is an error.
+Required Method. This method is called when the SOAPResponse receives an error.
