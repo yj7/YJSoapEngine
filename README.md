@@ -12,8 +12,8 @@ As of version 0.1, YJSoapEngine requires ARC. If you wish to use YJSoapEngine in
 
 To use the YJSoapEngine class in an app, just drag the files in the YJSoapEngine folder and add them in your project.
 
-Add **/usr/include/libxml2** in Header Search Paths in Build Settings
-Also add the **-lxml2** in Other Linker Flags in Build Settings
+Add **/usr/include/libxml2** in Header Search Paths in Build Settings.
+Also add the **-lxml2** in Other Linker Flags in Build Settings.
 # How to use #
 
 ```
