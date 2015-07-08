@@ -18,11 +18,10 @@ GDataXMLElement *envelopeElement;
 NSString *actionNamespace;
 NSMutableData *responseData;
 @implementation YJSoapEngine
-
+NSString *YJSoapEngineErrorDomain = @"com.lastminutecode.yjsoapengine";
 - (YJSoapEngine *)init
 {
-    if (!values)
-        values = [[NSMutableArray alloc]init];
+    values = [[NSMutableArray alloc]init];
     envelopeElement = [GDataXMLNode elementWithName:@"soap:Envelope"];
     [envelopeElement addNamespace:[GDataXMLNode namespaceWithName:@"soap" stringValue:@"http://schemas.xmlsoap.org/soap/envelope/"]];
     [envelopeElement addNamespace:[GDataXMLNode namespaceWithName:@"xsi" stringValue:@"http://www.w3.org/2001/XMLSchema-instance"]];
@@ -37,24 +36,24 @@ NSMutableData *responseData;
     const char *objectName = class_getName([object class]);
     NSString *objectNameStr = [[NSString alloc] initWithBytes:objectName length:strlen(objectName) encoding:NSASCIIStringEncoding];
     GDataXMLElement * objectElement;
-        //[objectElement addNamespace:[GDataXMLNode namespaceWithName:@"m" stringValue:nameSpace]];
+    //[objectElement addNamespace:[GDataXMLNode namespaceWithName:@"m" stringValue:nameSpace]];
     if (!tag)
         objectElement = [GDataXMLNode elementWithName:[@"" stringByAppendingString:objectNameStr]];
     else
         objectElement = [GDataXMLNode elementWithName:[@"" stringByAppendingString:tag]];
     
-        //[objectElement addNamespace:[GDataXMLNode namespaceWithName:@"m" stringValue:nameSpace]];
+    //[objectElement addNamespace:[GDataXMLNode namespaceWithName:@"m" stringValue:nameSpace]];
     OrderedDictionary * propertyDic = [XmlParser propertDictionary:object];
     NSString *nodeValue = [NSString stringWithFormat:@"%@",@""];
     int order = 1;
     for (NSString *key in propertyDic)
     {
-        if ([object valueForKey:key]!=nil)
+        if ([object valueForKey:key]!= nil)
         {
             if ([[propertyDic objectForKey:key] isEqualToString:@"l"])
                 nodeValue = [NSString stringWithFormat:@"%llu",[[object valueForKey:key] unsignedLongLongValue]];
             else if ([[propertyDic objectForKey:key] isEqualToString:@"i"])
-                nodeValue = [NSString stringWithFormat:@"%d",[object valueForKey:key]];
+                nodeValue = [NSString stringWithFormat:@"%d",[[object valueForKey:key] intValue]];
             else
                 nodeValue = [NSString stringWithFormat:@"%@",[object valueForKey:key]];
             if (nodeValue.length != 0)
@@ -88,6 +87,8 @@ NSMutableData *responseData;
 }
 - (void)requestURL:(NSString *)reqURL withSoapAction:(NSString *)soapAction
 {
+    RegsoapAction = soapAction;
+    ReqURL = reqURL;
     NSArray *pathArray = [soapAction componentsSeparatedByString:@"/"];
     GDataXMLElement *element;
     methodName = [pathArray lastObject];
@@ -129,24 +130,24 @@ NSMutableData *responseData;
     [conn start];
     
 }
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
-    [responseData setLength:0];
-}
 
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+{
+    if (responseData == nil)
+    {
+        responseData = [[NSMutableData alloc] init];
+    }
     [responseData appendData:data];
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
-    NSLog(@"Connection failed: %@", [error description]);
-    if (_delegate)
-    {
-        [_delegate YJSoapEngine:self didRecieveError:error inDictionary:nil];
-    }
+    NSLog(@"%@", [error description]);
+    [_delegate YJSoapEngine:self didRecieveError:error inDictionary:nil];
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-        //Getting your response string
+    //Getting your response string
     NSString *responseString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
     responseString = [self getResult:responseString];
     NSDictionary *tempDict = [[NSDictionary alloc]init];
@@ -159,10 +160,11 @@ NSMutableData *responseData;
     }
     else
     {
+        NSError *err = [[NSError alloc]initWithDomain:YJSoapEngineErrorDomain code:RecievedFault userInfo:nil];
         if (_delegate != nil)
-            [_delegate YJSoapEngine:self didRecieveError:responseString inDictionary:tempDict];
+            [_delegate YJSoapEngine:self didRecieveError:err inDictionary:tempDict];
     }
-
+    
     responseData = nil;
 }
 - (NSString *)generateXmlHeader {
@@ -214,4 +216,4 @@ NSMutableData *responseData;
     objectElement  = [GDataXMLNode elementWithName:tag stringValue:value];
     [values addObject:objectElement];
 }
-@end
+@end;

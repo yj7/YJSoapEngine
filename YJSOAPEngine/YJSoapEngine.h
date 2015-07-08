@@ -8,9 +8,13 @@
 
 #import <Foundation/Foundation.h>
 @protocol YJSoapEngineDelegate;
-
-
+typedef NS_ENUM(NSInteger, SoapErrorType) {
+    RecievedFault = 0
+};
 @interface YJSoapEngine : NSObject<NSURLConnectionDelegate,NSURLConnectionDataDelegate>
+{
+    NSString *ReqURL, *RegsoapAction;
+}
 - (void)setObject:(id)object andTag:(NSString *)tag andNamespace:(NSString *)nameSpace;
 - (void)setInteger:(int)value andTag:(NSString *)tag;
 - (void)setString:(NSString *)value andTag:(NSString *)tag;
@@ -19,6 +23,8 @@
 - (void)setActionNamespace:(NSString *)namespace;
 @property BOOL actionSlashNamespace;
 @property id <YJSoapEngineDelegate> delegate;
+@property int tag;
+extern const NSString *YJSoapEngineErrorDomain;
 @end
 
 
