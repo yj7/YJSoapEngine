@@ -17,21 +17,18 @@ Also add the **-lxml2** in Other Linker Flags in Build Settings.
 # How to use #
 
 ```
-#!objective-c
 @property BOOL actionNamespaceSlash;
 
 ```
 Sets whether the Envelope Namespace is specified in the SoapAction before the last slash.
 
 ```
-#!objective-c
 - (void)setObject:(id)object andTag:(NSString *)tag andNamespace:(NSString *)nameSpace;
 
 ```
 This method is used to set a custom object in the SOAP Request. This method serializes in the custom object. Tag parameter is optional to set the tag name of the object. Namespace parameter is used to set the namespace of the object.
 
 ```
-#!objective-c
 - (void)setInteger:(int)value andTag:(NSString *)tag;
 
 ```
@@ -39,7 +36,6 @@ This method is used to set a custom object in the SOAP Request. This method seri
 This method is used to set an Integer value in the SOAP Request. Tag is used to specify the tag name to be used.
 
 ```
-#!objective-c
 - (void)setFloat:(float)value andTag:(NSString *)tag;
 
 ```
@@ -47,14 +43,12 @@ This method is used to set an Integer value in the SOAP Request. Tag is used to 
 This method is used to set a Float value in the SOAP Request. Tag is used to specify the tag name to be used.
 
 ```
-#!objective-c
 - (void)setString:(NSString *)value andTag:(NSString *)tag;
 ```
 
 This method is used to set a String value in the SOAP Request. Tag is used to specify the tag name to be used.
 
 ```
-#!objective-c
 - (void)requestURL:(NSString *)reqURL withSoapAction:(NSString *)soapAction;
 ```
 
@@ -63,13 +57,11 @@ This method is used to send the SOAP Request to the specified URL and the specif
 # Delegate Method #
 
 ```
-#!objective-c
 - (void)YJSoapEngine:(YJSoapEngine *)soapEngine didRecieveData:(NSString *)data inDictionary:(NSDictionary *)dataDictionary;
 ```
 Required Method. This method is called when the SOAPResponse is received.
 
 ```
-#!objective-c
 - (void)YJSoapEngine:(YJSoapEngine *)YJSoapEngine didRecieveError:error inDictionary:(NSDictionary *)errorDictionary;
 ```
 Required Method. This method is called when the SOAPResponse receives an error.
