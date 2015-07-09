@@ -216,7 +216,7 @@ static const char* getPropertyType(objc_property_t property) {
 		
 	}
 	
-	NSLog(@"return array has %d objects",[returnArray count]);	
+	NSLog(@"return array has %d objects",(int)[returnArray count]);
 	return returnArray;
 	
 }
@@ -251,7 +251,7 @@ static const char* getPropertyType(objc_property_t property) {
             if ([[propertyDic objectForKey:key] isEqualToString:@"l"]) {
                 nodeValue = [NSString stringWithFormat:@"%llu",[[object valueForKey:key] unsignedLongLongValue]];
             }else if ([[propertyDic objectForKey:key] isEqualToString:@"i"]) {
-                nodeValue = [NSString stringWithFormat:@"%d",[object valueForKey:key]];
+                nodeValue = [NSString stringWithFormat:@"%d",(int)[object valueForKey:key]];
             }else {
                 nodeValue = [NSString stringWithFormat:@"%@",[object valueForKey:key]];
             }
