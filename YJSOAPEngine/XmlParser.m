@@ -215,9 +215,7 @@ static const char* getPropertyType(objc_property_t property) {
 		[returnArray addObject:createdObject];
 		
 	}
-	
-	NSLog(@"return array has %d objects",(int)[returnArray count]);
-	return returnArray;
+    return returnArray;
 	
 }
 
