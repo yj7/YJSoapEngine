@@ -6,9 +6,14 @@ YJSoapEngine is a class designed to simplify the implementation of a SOAP Web Se
 
 As of version 0.1, YJSoapEngine requires ARC. If you wish to use YJSoapEngine in a non-ARC project, just add the -fobjc-arc compiler flag to the YJSoapEngine.m class. To do this, go to the Build Phases tab in your target settings, open the Compile Sources group, double-click YJSoapEngine.m in the list and type -fobjc-arc into the popover.
 
-**Note:** XmlParser.m and GDataXMLNode.m is non - ARC. If used in ARC project, just add the **-fno-objc-arc** flag to these classes. To do this, go to the Build Phases tab in your target settings, open the Compile Sources group, double-click XmlParser.m and GDataXMLNode.m and  in the list and type -**fno-objc-arc** into the popover.
+**Note:** XmlParser.m,OrderedDictionary.m and GDataXMLNode.m is non - ARC. If used in ARC project, just add the **-fno-objc-arc** flag to these classes. To do this, go to the Build Phases tab in your target settings, open the Compile Sources group, double-click XmlParser.m and GDataXMLNode.m and  in the list and type -**fno-objc-arc** into the popover.
 
 # Installation #
+
+# Using CocoaPods #
+Just add the following to your pod file
+```pod 'YJSoapEngine' ```
+# Lame Installation #
 
 To use the YJSoapEngine class in an app, just drag the files in the YJSoapEngine folder and add them in your project.
 
