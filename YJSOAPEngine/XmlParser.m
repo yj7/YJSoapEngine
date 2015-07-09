@@ -216,7 +216,6 @@ static const char* getPropertyType(objc_property_t property) {
 		
 	}
     return returnArray;
-	
 }
 
 
