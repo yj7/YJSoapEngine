@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.author             = { "Yash Jhunjhunwala" => "jhunjhunwalayash7@gmail.com" }
   s.social_media_url   = "http://twitter.com/yashj97"
   s.platform     = :ios, "6.0"
-  s.source       = { :git => "https://github.com/yj7/YJSoapEngine.git", :tag => "v1.0.0" }
+  s.source       = { :git => "https://github.com/yj7/YJSoapEngine.git", :tag => "1.0.0" }
   non_arc_files = "YJSoapEngine/GDataXMLNode.{h,m}","YJSoapEngine/XmlParser.{h,m}","YJSoapEngine/OrderedDictionary.{h,m}"
   s.exclude_files = non_arc_files
   s.public_header_files = "YJSoapEngine/YJSoapEngine.h"
