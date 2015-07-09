@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/yj7/YJSoapEngine.git", :tag => "v1.0.0" }
   non_arc_files = "YJSoapEngine/GDataXMLNode.{h,m}","YJSoapEngine/XmlParser.{h,m}","YJSoapEngine/OrderedDictionary.{h,m}"
   s.exclude_files = non_arc_files
-  s.public_header_files = "YJSoapEngine/**/*.h"
+  s.public_header_files = "YJSoapEngine/YJSoapEngine.h"
 
   s.subspec 'TypeMapping' do |ss|
   ss.source_files = "YJSoapEngine/**/TypeMapping.{h,m}"
