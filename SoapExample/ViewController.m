@@ -41,7 +41,8 @@
 {
     NSLog(@"%@ : %ld",error.domain,(long)error.code);
 }
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
