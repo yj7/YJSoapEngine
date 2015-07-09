@@ -15,6 +15,9 @@
 		F61F72661B208C6300E94693 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F61F72641B208C6300E94693 /* LaunchScreen.xib */; };
 		F61F72721B208C6300E94693 /* SoapExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F61F72711B208C6300E94693 /* SoapExampleTests.m */; };
 		F621A2EE1B4E689500660DCE /* TypeMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = F621A2ED1B4E689500660DCE /* TypeMapping.m */; };
+		F621A3241B4E79FA00660DCE /* LICENSE.rtf in Resources */ = {isa = PBXBuildFile; fileRef = F621A3211B4E79FA00660DCE /* LICENSE.rtf */; };
+		F621A3251B4E79FA00660DCE /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = F621A3221B4E79FA00660DCE /* README.md */; };
+		F621A3261B4E79FA00660DCE /* YJSoapEngine.podspec in Resources */ = {isa = PBXBuildFile; fileRef = F621A3231B4E79FA00660DCE /* YJSoapEngine.podspec */; };
 		F6E465251B4D642E007FF705 /* YJSoapEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 083006811B219EDC003EC1C6 /* YJSoapEngine.m */; };
 		F6E465261B4D642E007FF705 /* XmlParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 083006841B219EDC003EC1C6 /* XmlParser.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		F6E465281B4D642E007FF705 /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 083006881B219EDC003EC1C6 /* GDataXMLNode.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -58,6 +61,9 @@
 		F61F72711B208C6300E94693 /* SoapExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SoapExampleTests.m; sourceTree = "<group>"; };
 		F621A2EC1B4E689500660DCE /* TypeMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TypeMapping.h; path = TypeMapping/TypeMapping.h; sourceTree = "<group>"; };
 		F621A2ED1B4E689500660DCE /* TypeMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TypeMapping.m; path = TypeMapping/TypeMapping.m; sourceTree = "<group>"; };
+		F621A3211B4E79FA00660DCE /* LICENSE.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = LICENSE.rtf; sourceTree = "<group>"; };
+		F621A3221B4E79FA00660DCE /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		F621A3231B4E79FA00660DCE /* YJSoapEngine.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = YJSoapEngine.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +121,9 @@
 		F61F72551B208C6300E94693 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F621A3211B4E79FA00660DCE /* LICENSE.rtf */,
+				F621A3221B4E79FA00660DCE /* README.md */,
+				F621A3231B4E79FA00660DCE /* YJSoapEngine.podspec */,
 				F61F72561B208C6300E94693 /* Info.plist */,
 				F61F72571B208C6300E94693 /* main.m */,
 			);
@@ -237,9 +246,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F621A3241B4E79FA00660DCE /* LICENSE.rtf in Resources */,
 				F61F72611B208C6300E94693 /* Main.storyboard in Resources */,
 				F61F72661B208C6300E94693 /* LaunchScreen.xib in Resources */,
 				F61F72631B208C6300E94693 /* Images.xcassets in Resources */,
+				F621A3261B4E79FA00660DCE /* YJSoapEngine.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,6 +270,7 @@
 			files = (
 				F6E465261B4D642E007FF705 /* XmlParser.m in Sources */,
 				F6E465281B4D642E007FF705 /* GDataXMLNode.m in Sources */,
+				F621A3251B4E79FA00660DCE /* README.md in Sources */,
 				F61F725E1B208C6300E94693 /* ViewController.m in Sources */,
 				F61F725B1B208C6300E94693 /* AppDelegate.m in Sources */,
 				F6E465251B4D642E007FF705 /* YJSoapEngine.m in Sources */,
