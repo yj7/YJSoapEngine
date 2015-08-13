@@ -1,10 +1,10 @@
-# **YJSoapEngine v1.0.0** #
+# **YJSoapEngine v1.1.0** #
 
 YJSoapEngine is a class designed to simplify the implementation of a SOAP Web Service for iPhone, iPad. YJSoapEngine can be used to serialize custom objects for Soap Requests.
 
 # ARC Compatibility #
 
-As of version 0.1, YJSoapEngine requires ARC. If you wish to use YJSoapEngine in a non-ARC project, just add the -fobjc-arc compiler flag to the YJSoapEngine.m class. To do this, go to the Build Phases tab in your target settings, open the Compile Sources group, double-click YJSoapEngine.m in the list and type -fobjc-arc into the popover.
+As of version 1.0.0, YJSoapEngine requires ARC. If you wish to use YJSoapEngine in a non-ARC project, just add the -fobjc-arc compiler flag to the YJSoapEngine.m class. To do this, go to the Build Phases tab in your target settings, open the Compile Sources group, double-click YJSoapEngine.m in the list and type -fobjc-arc into the popover.
 
 **Note:** XmlParser.m,OrderedDictionary.m and GDataXMLNode.m is non - ARC. If used in ARC project, just add the **-fno-objc-arc** flag to these classes. To do this, go to the Build Phases tab in your target settings, open the Compile Sources group, double-click XmlParser.m and GDataXMLNode.m and  in the list and type -**fno-objc-arc** into the popover.
 
@@ -29,6 +29,16 @@ Also add the **-lxml2** in Other Linker Flags in Build Settings.
 ```
 Sets whether the Envelope Namespace is specified in the SoapAction before the last slash.
 
+
+```
+@property SoapAuthType authenticationMethod;
+```
+Sets the soap authentication type.
+
+```
+@property NSString *username, *password;
+```
+Sets the username and password for authentication if authenticationMethod is SoapAuthBasic
 ```
 - (void)setObject:(id)object andTag:(NSString *)tag andNamespace:(NSString *)nameSpace;
 ```
