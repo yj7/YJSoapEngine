@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name         = "YJSoapEngine"
-s.version      = "1.0.0"
+s.version      = "1.1.0"
 s.summary      = "A SoapEngine for iOS written in Objective - C"
 s.description  = "YJSoapEngine is a class designed to simplify the implementation of a SOAP Web Service for iPhone, iPad. YJSoapEngine can be used to serialize custom objects for Soap Requests."
 s.homepage     = "https://github.com/yj7/YJSoapEngine"
@@ -8,7 +8,7 @@ s.license      = { :type => "MIT", :file => "LICENSE" }
 s.author             = { "Yash Jhunjhunwala" => "jhunjhunwalayash7@gmail.com" }
 s.social_media_url   = "http://twitter.com/yashj97"
 s.platform     = :ios, "6.0"
-s.source       = { :git => "https://github.com/yj7/YJSoapEngine.git", :tag => "1.0.0"}
+s.source       = { :git => "https://github.com/yj7/YJSoapEngine.git", :tag => "1.1.0"}
 non_arc_files = "YJSoapEngine/GDataXMLNode.{h,m}","YJSoapEngine/XmlParser.{h,m}","YJSoapEngine/OrderedDictionary.{h,m}"
 s.exclude_files = non_arc_files
 s.public_header_files = "YJSoapEngine/YJSoapEngine.h"
