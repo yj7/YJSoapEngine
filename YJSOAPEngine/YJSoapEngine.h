@@ -11,6 +11,10 @@
 typedef NS_ENUM(NSInteger, SoapErrorType) {
     RecievedFault = 0
 };
+typedef NS_ENUM(NSInteger, SoapAuthType) {
+    SoapAuthNone = 0,
+    SoapAuthBasic
+};
 @interface YJSoapEngine : NSObject<NSURLConnectionDelegate,NSURLConnectionDataDelegate>
 {
     NSString *ReqURL, *RegsoapAction;
@@ -23,7 +27,9 @@ typedef NS_ENUM(NSInteger, SoapErrorType) {
 - (void)setActionNamespace:(NSString *)namespace;
 @property BOOL actionSlashNamespace;
 @property id <YJSoapEngineDelegate> delegate;
+@property SoapAuthType authenticationMethod;
 @property int tag;
+@property NSString *username, *password;
 extern const NSString *YJSoapEngineErrorDomain;
 @end
 

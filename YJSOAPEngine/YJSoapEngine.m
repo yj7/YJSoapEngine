@@ -15,6 +15,7 @@
 NSMutableArray *values;
 NSString *methodName;
 GDataXMLElement *envelopeElement;
+GDataXMLElement *headerElement;
 NSString *actionNamespace;
 NSMutableData *responseData;
 @implementation YJSoapEngine
@@ -87,6 +88,7 @@ NSString *YJSoapEngineErrorDomain = @"com.lastminutecode.yjsoapengine";
 - (void)requestURL:(NSString *)reqURL withSoapAction:(NSString *)soapAction
 {
     RegsoapAction = soapAction;
+    NSString *tempNamespace = @"";
     ReqURL = reqURL;
     NSArray *pathArray = [soapAction componentsSeparatedByString:@"/"];
     GDataXMLElement *element;
@@ -94,7 +96,6 @@ NSString *YJSoapEngineErrorDomain = @"com.lastminutecode.yjsoapengine";
     element = [GDataXMLNode elementWithName:methodName];
     if (_actionSlashNamespace)
     {
-        NSString *tempNamespace = @"";
         for (int i = 0; i < pathArray.count - 1; i++)
         {
             NSString *temp = [pathArray objectAtIndex:i];
@@ -111,12 +112,28 @@ NSString *YJSoapEngineErrorDomain = @"com.lastminutecode.yjsoapengine";
     {
         [element addChild:childs];
     }
+    
+    headerElement = nil;
+    if (SoapAuthBasic == _authenticationMethod)
+    {
+        headerElement = [GDataXMLNode elementWithName:@"soap:Header"];
+        GDataXMLElement *authElement = [GDataXMLNode elementWithName:@"Authentication"];
+        [authElement addAttribute:[GDataXMLNode attributeWithName:@"soap:mustUnderstand" stringValue:@"1"]];
+        GDataXMLElement *objectElement;
+        objectElement  = [GDataXMLNode elementWithName:@"UserName" stringValue:_username];
+        [authElement addChild:objectElement];
+        objectElement = [GDataXMLNode elementWithName:@"Password" stringValue:_password];
+        [authElement addChild:objectElement];
+        [headerElement addChild:authElement];
+        [envelopeElement addChild:headerElement];
+    }
     GDataXMLElement *soapBody = [GDataXMLNode elementWithName:@"soap:Body"];
     [soapBody addChild:element];
     [envelopeElement addChild:soapBody];
     NSString *headerString = [self generateXmlHeader];
     responseData = [[NSMutableData alloc] init];
     NSString *soapMessage = [headerString stringByAppendingString:envelopeElement.XMLString];
+    NSLog(soapMessage);
     NSURL *url = [NSURL URLWithString:reqURL];
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     NSString *msgLength = [NSString stringWithFormat:@"%lu", (unsigned long)[soapMessage length]];
@@ -152,7 +169,7 @@ NSString *YJSoapEngineErrorDomain = @"com.lastminutecode.yjsoapengine";
     NSDictionary *tempDict = [[NSDictionary alloc]init];
     tempDict = [NSDictionary dictionaryWithXMLString:responseString];
     NSDictionary *checkFault = [tempDict valueForKey:@"faultcode"];
-    if ([checkFault count] < 1)
+    if ([checkFault respondsToSelector:@selector(count)] && [checkFault count] < 1)
     {
         if (_delegate != nil)
             [_delegate YJSoapEngine:self didRecieveData:responseString inDictionary:tempDict];
