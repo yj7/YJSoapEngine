@@ -1,4 +1,4 @@
-# **YJSoapEngine v1.1.0** #
+# **YJSoapEngine v1.1.1** #
 
 YJSoapEngine is a class designed to simplify the implementation of a SOAP Web Service for iPhone, iPad. YJSoapEngine can be used to serialize custom objects for Soap Requests.
 
