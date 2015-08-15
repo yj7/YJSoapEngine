@@ -133,7 +133,6 @@ NSString *YJSoapEngineErrorDomain = @"com.lastminutecode.yjsoapengine";
     NSString *headerString = [self generateXmlHeader];
     responseData = [[NSMutableData alloc] init];
     NSString *soapMessage = [headerString stringByAppendingString:envelopeElement.XMLString];
-    NSLog(soapMessage);
     NSURL *url = [NSURL URLWithString:reqURL];
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     NSString *msgLength = [NSString stringWithFormat:@"%lu", (unsigned long)[soapMessage length]];
@@ -169,7 +168,7 @@ NSString *YJSoapEngineErrorDomain = @"com.lastminutecode.yjsoapengine";
     NSDictionary *tempDict = [[NSDictionary alloc]init];
     tempDict = [NSDictionary dictionaryWithXMLString:responseString];
     NSDictionary *checkFault = [tempDict valueForKey:@"faultcode"];
-    if ([checkFault respondsToSelector:@selector(count)] && [checkFault count] < 1)
+    if (!checkFault || ([checkFault respondsToSelector:@selector(count)] && [checkFault count] < 1))
     {
         if (_delegate != nil)
             [_delegate YJSoapEngine:self didRecieveData:responseString inDictionary:tempDict];
