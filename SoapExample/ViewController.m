@@ -31,11 +31,33 @@
     [soapEngine requestURL:@"http://www.w3schools.com/webservices/tempconvert.asmx" withSoapAction:@"http://www.w3schools.com/webservices/CelsiusToFahrenheit"];
     
 }
+- (IBAction)sendWeatherRequest:(id)sender
+{
+    YJSoapEngine *soapEngine = [[YJSoapEngine alloc]init];
+    soapEngine.tag = 1;
+    soapEngine.delegate = self;
+    soapEngine.actionSlashNamespace = NO;
+    [soapEngine setActionNamespace:@"http://www.webserviceX.NET"];
+    [soapEngine setString:@"Jodhpur" andTag:@"CityName"];
+    [soapEngine setString:@"India" andTag:@"CountryName"];
+    [soapEngine requestURL:@"http://www.webservicex.net/globalweather.asmx" withSoapAction:@"http://www.webserviceX.NET/GetWeather"];
+    
+}
+
 - (void)YJSoapEngine:(YJSoapEngine *)soapEngine didRecieveData:(NSString *)data inDictionary:(NSDictionary *)dataDictionary
 {
     NSLog(@"Soap Response:\n %@",data);
-    NSString *farenheit = [dataDictionary valueForKeyPath:@"CelsiusToFahrenheitResponse.CelsiusToFahrenheitResult"];
-    lblFarenheit.text = farenheit;
+    if (soapEngine.tag == 1)
+    {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Weather Response" message:data delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+    }
+    else
+    {
+        NSString *farenheit = [dataDictionary valueForKeyPath:@"CelsiusToFahrenheitResponse.CelsiusToFahrenheitResult"];
+        lblFarenheit.text = farenheit;
+    }
+
 }
 - (void)YJSoapEngine:(YJSoapEngine *)YJSoapEngine didRecieveError:(NSError *)error inDictionary:(NSDictionary *)errorDictionary
 {

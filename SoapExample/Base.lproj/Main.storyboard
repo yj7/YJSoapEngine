@@ -52,6 +52,15 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JUP-4F-0ud">
+                                <rect key="frame" x="201" y="318" width="198" height="30"/>
+                                <state key="normal" title="Send Weather Soap Request">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendWeatherRequest:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Ff0-bL-fbs"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -63,7 +72,9 @@
                             <constraint firstItem="wQs-2D-aBE" firstAttribute="top" secondItem="aGY-uB-JpJ" secondAttribute="bottom" constant="8" id="KxS-zd-5wU"/>
                             <constraint firstItem="Kw8-Us-SxN" firstAttribute="top" secondItem="OKi-Hl-8k2" secondAttribute="bottom" constant="13" id="PS5-Nr-ItV"/>
                             <constraint firstAttribute="centerX" secondItem="wQs-2D-aBE" secondAttribute="centerX" id="RPV-TF-yiq"/>
+                            <constraint firstItem="JUP-4F-0ud" firstAttribute="top" secondItem="wQs-2D-aBE" secondAttribute="bottom" constant="3" id="XY5-U6-aWr"/>
                             <constraint firstItem="aGY-uB-JpJ" firstAttribute="top" secondItem="Yti-Xr-raO" secondAttribute="bottom" constant="7" id="kZR-Pb-0V7"/>
+                            <constraint firstAttribute="centerX" secondItem="JUP-4F-0ud" secondAttribute="centerX" id="m2c-Wv-m9d"/>
                             <constraint firstItem="wQs-2D-aBE" firstAttribute="top" secondItem="Kw8-Us-SxN" secondAttribute="bottom" constant="8" id="q5d-0m-eTw"/>
                             <constraint firstAttribute="centerX" secondItem="aGY-uB-JpJ" secondAttribute="centerX" constant="-62" id="rNt-Hi-V1Y"/>
                             <constraint firstAttribute="centerY" secondItem="wQs-2D-aBE" secondAttribute="centerY" id="sif-SA-UO9"/>
